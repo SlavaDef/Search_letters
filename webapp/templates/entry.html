@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/search4'> <!--переадрес на метод з пост і методом підрахунку -->
+
+<table>
+<p>Use this form to submit a search request:</p>
+<tr><td>Phrase:</td><td><input name='phrase' type='TEXT' width='60'></td></tr>
+    <!--value те що буде написано за замовчуванням, <input - форма вводу  -->
+<tr><td>Letters:</td><td><input name='letters' type='TEXT' value='aeiou'></td></tr>
+</table>
+
+<p>When you're ready, click this button:</p>
+
+<p><input value='Do it!' type='SUBMIT'></p> <!-- при надсиланні переходимо -->
+
+</form>
+{% endblock %}
