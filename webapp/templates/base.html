@@ -7,12 +7,43 @@
 
    <link rel="stylesheet" href="static/hf.css" />
 
+        <style>
+    .currency-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: blue;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: sans-serif;
+    }
+
+     .currency-button2 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background: red;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: sans-serif;
+    }
+  </style>
+
    </head>
 
    <body>
+   <!-- Кнопка справа -->
+<a href="/privat" class="currency-button">Курс валют</a>
+<a href="/viewlog" class="currency-button2">Logs</a>
               {% block body %}
 
               {% endblock %}
+
+
    </body>
 
   </html>
