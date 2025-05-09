@@ -2,12 +2,8 @@ def find_letters_in_words(phrase: str, letters: str):
     return sorted(set(phrase).intersection(set(letters)))
 
 
-#print(str(find_letters_in_words('assasins', 'ai')))
-#print(find_letters_in_words('ai', 'assasins'))
-
-
+ # this method return letter that found in the word and it's count
 def find_letters_in_words_version_second(word, letters):
-    # this method return letter that found in the word and it's count
 
         count_dictionary = {}  # empty dictionary
         res = []
@@ -19,8 +15,10 @@ def find_letters_in_words_version_second(word, letters):
 
         for k, v in sorted(count_dictionary.items()):
                 #print(k, 'was found ', v, ' time(s)')
-              res.append(''.join(str(k) + ' - was found '+ str(v) + ' time(s),\n'))
+              #res.append(''.join(str(k) + ' - was found '+ str(v) + ' time(s),\n'))
+              res.append(str(k) + '-' + str(v))
 
-        return "".join(res)
+        #return "".join(res)
+        return res
 
-print(find_letters_in_words_version_second('sunnyday', 'uny'))
+#print(find_letters_in_words_version_second('sunnyday', 'uny'))

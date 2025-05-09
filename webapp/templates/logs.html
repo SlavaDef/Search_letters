@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>{{ the_title }}</h2>
+
+
+<table border="1" cellspacing="0" cellpadding="5" style="background-color: tan; color: #333;">
+    <tr style="background-color: yellow; color: black;">
+    <th>From_Data</th>
+    <th>Remove_addr</th>
+    <th>User_Agent</th>
+    <th>Results</th>
+     </tr>
+     {% for row in log_data %}
+    <tr>
+       <td>{{ row[0] }}</td>
+       <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

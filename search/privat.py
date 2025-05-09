@@ -19,3 +19,20 @@ def get_exchange_rates() -> str:
 
     else:
         return f"Помилка запиту: {response.status_code}"
+
+
+def get_exchange():
+    url = "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=5"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        result = []
+        for currency in data:
+            if currency['ccy'] in ['USD', 'EUR']:  # тільки ці валюти
+                result.append('BUY = ' + currency['buy'] + " // " + 'SELL = '+ currency['sale'])
+        #print(result)
+        return result
+    else:
+        return f"Помилка запиту: {response.status_code}"

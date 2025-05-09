@@ -1,8 +1,10 @@
+import html
+
 from  flask import Flask, render_template, request
 from werkzeug.utils import redirect
 from markupsafe import escape
 from constants.constants import log_file
-from search.privat import get_exchange_rates
+from search.privat import get_exchange_rates, get_exchange
 from search.search_letters import find_letters_in_words, find_letters_in_words_version_second
 import requests
 
@@ -28,6 +30,7 @@ def do_search() -> 'html':
                            the_title = title, the_results= results, the_currency_res = currency_res )
 
 
+
 @app.route('/')
 @app.route('/entry')
 def entry_page() -> 'html':
@@ -37,43 +40,40 @@ def entry_page() -> 'html':
 
 
 @app.route('/privat')
-def get_exchange_privat_rates() -> str:
-    url = "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=5"
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        data = response.json()
-
-        result = []
-        for currency in data:
-            if currency['ccy'] in ['USD', 'EUR']:  # тільки ці валюти
-                result.append(
-                    f"{currency['ccy']} => {currency['base_ccy']}: <br> <br> BUY = {currency['buy']}, SELL = {currency['sale']}")
-
-        return "<br><br>".join(result)  # HTML-перехід на новий рядок
-
-    else:
-        return f"Помилка запиту: {response.status_code}"
-
+def get_exchange_privat_rates() -> html:
+     return render_template('privat.html', the_title = 'Exchange_rates', pr_data=get_exchange())
 
 
 # escape дозволяє вивести рядок з тегами(екранізація тегів)
 @app.route('/viewlog')
-def view_logs() -> str:
-
+def view_logs_my_vers() -> 'html':
+    res = []
     with open(log_file) as file:
-       read_content = file.readlines()
+        content = file.readlines()
+        for line in content:
+            o = line.split("***")
+            res.append(o)
+    escape(str(res))
 
-    #return escape(read_content)
-    return "<br>".join(escape(str(line)) for line in read_content)
+    return render_template('logs.html', log_data=res, the_title='View logs')
+
+   #return "<br>".join(escape(str(line)) for line in read_content)
+
+
+@app.route('/mylogs')
+def view_my_logs() -> 'html':
+    res=[]
+    with open(directory) as file:
+        read_all = file.readlines()
+        for line in read_all:
+            res.append(line.split("*"))
+
+    return render_template('my_logs.html', log_data = res, the_title='Welcome to my_logs')
+    #return "<br>".join(str(line) for line in read_all)
+
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-
-
-#fafcff
-# tan

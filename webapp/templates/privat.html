@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>{{ the_title }}</h2>
+
+
+<table border="1" cellspacing="0" cellpadding="5" style="background-color: yellow; color: #333;">
+    <tr style="background-color: skyBlue; color: black;">
+    <th>EUR => UAH:</th>
+    <th>USD => UAH:</th>
+
+     </tr>
+
+    <tr>
+        <td>{{ pr_data[0] }}</td>
+        <td>{{ pr_data[1] }}</td>
+
+
+    </tr>
+
+
+</table>
+
+
+
+{% endblock %}
