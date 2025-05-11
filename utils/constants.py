@@ -12,4 +12,4 @@ SQL3 = """insert into log
 (phrase, letters, ip, browser_string, results)
 values
 (%s, %s, %s, %s, %s)""" # сюди будуть приходити данні від методу
-SQl4 = """select * from log"""
+SQL4 = """select * from log"""

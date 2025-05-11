@@ -49,3 +49,5 @@ ImmutableMultiDict([('phrase', 'jjujhg'), ('letters', 'j')])***127.0.0.1***Mozil
 ImmutableMultiDict([('phrase', 'santabarbara'), ('letters', 'b')])***127.0.0.1***Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36***['b-2']
 ImmutableMultiDict([('phrase', 'zigmyndfrade'), ('letters', 'yea')])***127.0.0.1***Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36***['a-1', 'e-1', 'y-1']
 ImmutableMultiDict([('phrase', 'jokerinthegothem'), ('letters', 'oeiat')])***127.0.0.1***Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36***['a-0', 'e-3', 'i-1', 'o-2', 't-2']
+ImmutableMultiDict([('phrase', 'santabarbara'), ('letters', 'b')])***127.0.0.1***Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36***['b-2']
+ImmutableMultiDict([('phrase', 'thewire'), ('letters', 'e')])***127.0.0.1***Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36***['e-2']

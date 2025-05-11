@@ -6,7 +6,7 @@ from werkzeug.utils import redirect
 from markupsafe import escape
 from user_agents import parse
 
-from service.dbWrite import write_db, read_all_from_db
+from service.dbWrite import write_db, read_all_from_db, read_all_from_db2
 from service.logs import view_logs, view_logs2, view_logs3, view_the_logs2
 from utils.constants import log_file
 from service.privat import get_exchange_rates, get_exchange
@@ -25,6 +25,10 @@ app = Flask(__name__,
 #@app.route('/')
 #def hello() -> '302':
   #  return redirect('/entry')
+
+
+#app.config['dbconfig'] = {'host': '127.0.0.1','user': 'vsearch','password': 'vsearchpasswd','database': 'vsearchlogDB', }
+
 
 
 @app.route('/search4', methods = ['POST'])
@@ -81,7 +85,7 @@ def view_my_logs() -> 'html':
 def view_bd_logs() -> 'html':
     titles = ('Id','Data','Phrase','Letters', 'Remote_addr', 'User_agent', 'Results')
     return render_template('logs_from_bd.html', the_row_titles=titles,
-                           log_data = read_all_from_db(), the_title='Welcome to bd_logs')
+                           log_data = read_all_from_db2(), the_title='Welcome to bd_logs')
 
 
 if __name__ == '__main__':

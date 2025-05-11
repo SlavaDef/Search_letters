@@ -20,3 +20,5 @@ Word = jjujhg, finding letters {j} *['j-3']*
 Word = santabarbara, finding letters {b} *['b-2']*
 Word = zigmyndfrade, finding letters {yea} *['a-1', 'e-1', 'y-1']*
 Word = jokerinthegothem, finding letters {oeiat} *['a-0', 'e-3', 'i-1', 'o-2', 't-2']*
+Word = santabarbara, finding letters {b} *['b-2']*
+Word = thewire, finding letters {e} *['e-2']*

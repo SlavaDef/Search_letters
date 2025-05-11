@@ -1,6 +1,6 @@
 import pymysql
 
-from utils.constants import dbconfig, SQL3, SQl4
+from utils.constants import dbconfig, SQL3, SQL4
 
 conn = pymysql.connect(**dbconfig) # створення конекшену
 
@@ -12,7 +12,7 @@ cursor = conn.cursor()
 
 
 
-cursor.execute(SQl4)
+cursor.execute(SQL4)
 
 for row in cursor.fetchall():
     print(row)
