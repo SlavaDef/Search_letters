@@ -1,5 +1,0 @@
-Word = santabarbara, finding letters {aeiou} *['a-5', 'e-0', 'i-0', 'o-0', 'u-0']*
-Word = holliwood, finding letters {ow} *['o-3', 'w-1']*
-Word = bobbi, finding letters {b} *['b-3']*
-Word = kilommmm, finding letters {m} *['m-4']*
-Word = senator, finding letters {e} *['e-1']*

@@ -11,17 +11,8 @@
         {% endfor %}
 
      </tr>
-    <!--
-     {% for row in log_data %}
-    <tr>
-       <td>{{ row[0] }}</td>
-       <td>{{ row[1] }}</td>
-        <td>{{ row[2] }}</td>
-        <td>{{ row[3] }}</td>
-    </tr>
-    {% endfor %}
--->
-    {% for log_row in the_data %}
+
+    {% for log_row in log_data %}
         <tr>
            {% for item in log_row %}
               <td>{{item}}</td>

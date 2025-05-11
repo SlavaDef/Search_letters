@@ -2,7 +2,7 @@ def find_letters_in_words(phrase: str, letters: str):
     return sorted(set(phrase).intersection(set(letters)))
 
 
- # this method return letter that found in the word and it's count
+ # this method return list of [letter that found in the word and it's count]
 def find_letters_in_words_version_second(word, letters):
 
         count_dictionary = {}  # empty dictionary

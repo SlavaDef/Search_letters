@@ -1,4 +1,4 @@
-from constants.constants import directory, log_file
+from utils.constants import directory, log_file
 
 
 def write_message(phrase, letters, results): # записує задане слово, задані букви і результат пошуку
