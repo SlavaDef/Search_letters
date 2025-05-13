@@ -29,6 +29,7 @@ app = Flask(__name__,
 
 #app.config['dbconfig'] = {'host': '127.0.0.1','user': 'vsearch','password': 'vsearchpasswd','database': 'vsearchlogDB', }
 
+app.secret_key = 'YouWillNeverGuessMySecretKey'
 
 
 @app.route('/search4', methods = ['POST'])
@@ -81,11 +82,31 @@ def view_my_logs() -> 'html':
                            log_data = view_logs3(), the_title='Welcome to my_logs')
 
 
+@app.route('/dblogs2', methods = ['POST'] )
+def view_bd_logs2() -> 'html':
+    app.secret_key = 'YouWillNeverGuessMySecretKey'
+    user_name = request.form['user_name']
+    login = request.form['login']
+
+    if user_name == 'adminAdmin' and login == app.secret_key:
+
+        titles = ('Id','Data','Phrase','Letters', 'Remote_addr', 'User_agent', 'Results')
+        return render_template('logs_from_bd.html', the_row_titles=titles,
+                               log_data = read_all_from_db2(), the_title='Welcome to bd_logs')
+
+    return redirect('/entry')
+
+
+
 @app.route('/dblogs')
 def view_bd_logs() -> 'html':
-    titles = ('Id','Data','Phrase','Letters', 'Remote_addr', 'User_agent', 'Results')
-    return render_template('logs_from_bd.html', the_row_titles=titles,
-                           log_data = read_all_from_db2(), the_title='Welcome to bd_logs')
+    return render_template('security_log.html')
+
+
+@app.route('/4')
+def view_seeds() -> 'html':
+    return render_template('seeds.html')
+
 
 
 if __name__ == '__main__':

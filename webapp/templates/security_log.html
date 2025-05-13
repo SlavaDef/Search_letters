@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/dblogs2'> <!--переадрес на метод з пост і методом підрахунку -->
+
+<table>
+<p>Use this form to login in db_logs:</p>
+<tr><td>User_name:</td><td><input name='user_name' type='TEXT' width='60'></td></tr>
+
+<tr><td>Login:</td><td><input name='login' type='TEXT'></td></tr>
+</table>
+
+
+<p><input value='Log_in' type='SUBMIT'></p> <!-- при надсиланні переходимо -->
+
+</form>
+{% endblock %}
