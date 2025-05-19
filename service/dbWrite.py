@@ -1,5 +1,6 @@
 import pymysql
 
+from Exeptions.myExeptions import CredentialsError, SQLError
 from db.conectionWithDatabaze import UseDatabase
 from utils.constants import  SQL3, SQL4, dbconfig
 
@@ -37,14 +38,22 @@ def read_all_from_db():
     return cursor.fetchall()
 
 
-def read_all_from_db2():
+def read_from_db(sql) -> list:
 
     try:
         with UseDatabase(**dbconfig) as cursor:
-            cursor.execute(SQL4)
+            cursor.execute(sql)
             res = cursor.fetchall()
             return res
-
+    except CredentialsError as err: # власні виключення які виникають завдяки припису в методі __exit__ конекшену до бд
+        print('User-id/Password issues. Error:', str(err))
+        return []
+    except ConnectionError as err:
+        print('Is your database switched on? Error:', str(err))
+        return []
+    except SQLError as err:
+        print('Is your sql is correct?', str(err))
+        return []
     except Exception as e:
         print(f"Помилка: {e}")
         return []
@@ -52,4 +61,4 @@ def read_all_from_db2():
 
 
 
-#print(read_all_from_db2())
+#print(read_from_db("SELECT * FROMM users"))
