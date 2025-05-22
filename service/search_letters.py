@@ -2,6 +2,10 @@ def find_letters_in_words(phrase: str, letters: str):
     return sorted(set(phrase).intersection(set(letters)))
 
 
+def find(phrase: str, letters: str) -> list:
+    return sorted(list(letter for letter in letters.lower() if letter in phrase.lower()))
+
+
  # this method return list of [letter that found in the word and it's count]
 def find_letters_in_words_version_second(word, letters) -> list:
 
@@ -51,6 +55,9 @@ def find_letters_in_words_ai(word: str, letters: str) -> list:
 
     # Формуємо результат
     return [f"{k}-{v}" for k, v in sorted(count_dictionary.items())]
+
+
+#print(find('hello', 'lo'))
 
 # 1. Додано підтримку кирилиці через нормалізацію введених даних методом `lower()`
 # 2. Використано `collections.Counter` для ефективного підрахунку
